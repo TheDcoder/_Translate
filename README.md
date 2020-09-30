@@ -7,7 +7,7 @@ Inspired by [gettext](https://en.wikipedia.org/wiki/Gettext) and [AU3Text](https
 
 ### Extractor
 
-1. Place compiled `eci.exe` binary under `eci\build` folder
+1. Place compiled [`eci.exe`](https://www.autoitscript.com/forum/files/file/510-_translate-eci-string-extractor) binary under `eci\build` folder
 2. Run `Extract.au3` script to interactively extract all translatable strings from your script
 
 ### UDF
