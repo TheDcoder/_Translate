@@ -1,6 +1,7 @@
 #include <AutoItConstants.au3>
 #include <Debug.au3>
 #include <FileConstants.au3>
+#include <MsgBoxConstants.au3>
 
 Global Const $ECI = @ScriptDir & '\eci\build\eci.exe'
 
@@ -10,6 +11,10 @@ Func Main()
 	Local $sScript = FileOpenDialog("Select Script", @WorkingDir, 'AutoIt Script (*.au3)', $FD_FILEMUSTEXIST)
 	If @error Then Return
 	Local $aStrings = ExtractStrings($sScript)
+	If $aStrings[0] = 1 And $aStrings[1] = "" Then
+		MsgBox($MB_ICONWARNING, "No translatable strings", "There were no translatable strings found in your script, please make sure you use the underscore function to wrap your translatable strings!")
+		Return
+	EndIf
 
 	Local $sTable = GenerateTranslationTable($aStrings)
 	Local $sTableFile = FileSaveDialog("Save translation table", @WorkingDir, 'Tab Separated Values (*.tsv)|All (*.*)', 0, 'translations.tsv')

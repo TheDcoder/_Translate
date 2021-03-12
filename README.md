@@ -10,6 +10,14 @@ Inspired by [gettext](https://en.wikipedia.org/wiki/Gettext) and [AU3Text](https
 1. Place compiled [`eci.exe`](https://www.autoitscript.com/forum/files/file/510-_translate-eci-string-extractor) binary under `eci\build` folder
 2. Run `Extract.au3` script to interactively extract all translatable strings from your script
 
+**NOTE**: The extractor will only extract translatable strings from your code (i.e strings wrapped in the `_` function):
+```
+#include "_.au3"
+
+ConsoleWrite("This string will NOT be extracted")
+ConsoleWrite(_("This string will be extracted"))
+```
+
 ### UDF
 
 1. Include `_.au3` in your script
